@@ -9,6 +9,7 @@ import com.tolgay.mindbalance.mapper.UserMapper;
 import com.tolgay.mindbalance.model.User;
 import com.tolgay.mindbalance.repository.UserRepository;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,7 +22,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class AuthenticationService {
 
     private final UserRepository userRepository;

@@ -10,6 +10,10 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import {MatFormField} from "@angular/material/form-field";
 import { MatInputModule } from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
+import {MatButton} from "@angular/material/button";
+import {AdapterService} from "./adapter/adapter.service";
+import {HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
+import {AuthInterceptor} from "./service/auth-interceptor.service";
 
 
 const appRoutes: Routes = [
@@ -24,19 +28,27 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent
   ],
-  imports: [
-    BrowserModule,
-    MatCard,
-    MatCardHeader,
-    MatCardContent,
-    RouterModule.forRoot(appRoutes),
-    ReactiveFormsModule,
-    MatFormField,
-    MatInputModule,
-    MatCardModule
-  ],
+    imports: [
+        BrowserModule,
+        MatCard,
+        MatCardHeader,
+        MatCardContent,
+        RouterModule.forRoot(appRoutes),
+        ReactiveFormsModule,
+        MatFormField,
+        MatInputModule,
+        MatCardModule,
+        MatButton
+    ],
   providers: [
-    provideAnimationsAsync()
+    AdapterService,
+    provideAnimationsAsync(),
+    provideHttpClient(withInterceptorsFromDi()),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

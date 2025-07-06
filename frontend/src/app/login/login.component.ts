@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {AdapterService} from "../adapter/adapter.service";
+import {Login} from "../models/login.model";
 
 @Component({
   selector: 'app-login',
@@ -8,4 +11,25 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+  constructor(private adapterService: AdapterService) {}
+
+  loginForm: FormGroup = new FormGroup ({
+    'email': new FormControl('', [Validators.required, Validators.email]),
+    'password': new FormControl('', Validators.required),
+  });
+
+  onLogin() {
+    if(this.loginForm.invalid) {
+      console.log('loginForm invalid', this.loginForm);
+      return;
+    }
+    this.adapterService.login(this.createLoginPayload());
+  }
+
+  private createLoginPayload(): Login {
+    return {
+      email: this.loginForm.get('email')?.value ?? '',
+      password: this.loginForm.get('password')?.value ?? ''
+    }
+  }
 }

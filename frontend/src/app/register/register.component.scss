@@ -1,4 +1,35 @@
 .register {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  width: 800px;
+  padding: 80px 0;
+
+  &__card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    border: solid 1px #cadefc;
+    padding: 20px 0 5px 0;
+    margin-bottom: 40px;
+  }
+
+  &__button {
+    background-color: #cca8e9;
+    width: 150px;
+  }
+}
+
+fieldset {
+  border: none;
+}
+
+mat-form-field {
+  width: 350px;
+}
+
+h1 {
+  color: #5e63b6;
 }
