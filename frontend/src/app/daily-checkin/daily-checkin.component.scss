@@ -1,0 +1,30 @@
+.dailyCheckin__factor {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  mat-label {
+    width: 200px;
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  &--slider {
+    margin-right: 5rem;
+  }
+
+  &--value {
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+}
+
+.save__button {
+  background-color: #cca8e9;
+  margin-right: 15px;
+}
+
+mat-card {
+  margin-bottom: 2rem;
+}

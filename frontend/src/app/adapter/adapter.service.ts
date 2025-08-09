@@ -37,7 +37,7 @@ export class AdapterService {
         })
       )
       .subscribe(() => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/dashboard']);
       })
   }
 }

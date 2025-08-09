@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatCard, MatCardContent, MatCardHeader} from "@angular/material/card";
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {MatFormField} from "@angular/material/form-field";
@@ -14,11 +14,18 @@ import {MatButton} from "@angular/material/button";
 import {AdapterService} from "./adapter/adapter.service";
 import {HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
 import {AuthInterceptor} from "./service/auth-interceptor.service";
+import {DashboardComponent} from "./dashboard/dashboard.component";
+import {DailyCheckinComponent} from "./daily-checkin/daily-checkin.component";
+import {MatSlider, MatSliderThumb} from "@angular/material/slider";
+import {MatStep, MatStepLabel, MatStepper, MatStepperNext, MatStepperPrevious} from "@angular/material/stepper";
+import {MatButtonModule} from '@angular/material/button';
 
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'daily-checkin', component: DailyCheckinComponent },
   { path: '**', redirectTo: 'login' }
 ];
 
@@ -26,20 +33,31 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    DashboardComponent,
+    DailyCheckinComponent
   ],
-    imports: [
-        BrowserModule,
-        MatCard,
-        MatCardHeader,
-        MatCardContent,
-        RouterModule.forRoot(appRoutes),
-        ReactiveFormsModule,
-        MatFormField,
-        MatInputModule,
-        MatCardModule,
-        MatButton
-    ],
+  imports: [
+    BrowserModule,
+    MatCard,
+    MatCardHeader,
+    MatCardContent,
+    RouterModule.forRoot(appRoutes),
+    ReactiveFormsModule,
+    MatFormField,
+    MatInputModule,
+    MatCardModule,
+    MatButton,
+    MatSlider,
+    FormsModule,
+    MatSliderThumb,
+    MatStepper,
+    MatStep,
+    MatStepLabel,
+    MatStepperNext,
+    MatButtonModule,
+    MatStepperPrevious
+  ],
   providers: [
     AdapterService,
     provideAnimationsAsync(),

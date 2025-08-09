@@ -8,7 +8,6 @@ import com.tolgay.mindbalance.exception.UserAlreadyExistException;
 import com.tolgay.mindbalance.mapper.UserMapper;
 import com.tolgay.mindbalance.model.User;
 import com.tolgay.mindbalance.repository.UserRepository;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +16,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -29,6 +29,7 @@ public class AuthenticationService {
     private final UserMapper userMapper;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
+    private final PasswordEncoder passwordEncoder;
     private static final Logger log = LoggerFactory.getLogger(AuthenticationService.class);
 
     public AuthenticationResponseDTO register(UserDTO register) {
@@ -42,6 +43,8 @@ public class AuthenticationService {
             throw new UserAlreadyExistException(String.format(
                     "User with the E-Mail: %s already exist.", register.getEmail()));
         }
+
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         userRepository.save(user);
         String jwtToken = jwtService.generateToken(user);
