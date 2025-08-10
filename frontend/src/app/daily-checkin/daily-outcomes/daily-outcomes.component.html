@@ -1,0 +1,98 @@
+<form [formGroup]="wellbeingMetricsForm">
+
+  <mat-card>
+    <mat-card-content>
+      <div class="dailyCheckin__factor">
+        <mat-label>Mood</mat-label>
+        <mat-slider
+          class="dailyCheckin__factor--slider"
+          [disabled]="sliderConfig.disabled"
+          [max]="sliderConfig.max"
+          [min]="sliderConfig.min"
+          [step]="sliderConfig.step"
+          [discrete]="sliderConfig.discrete"
+          [showTickMarks]="sliderConfig.showTickMarks">
+          <input matSliderThumb formControlName="mood">
+        </mat-slider>
+        <div class="dailyCheckin__factor--value">{{ getOutcomeValue('mood') }}</div>
+      </div>
+
+      <div class="dailyCheckin__factor">
+        <mat-label>Focus / Concentration</mat-label>
+        <mat-slider
+          class="dailyCheckin__factor--slider"
+          [disabled]="sliderConfig.disabled"
+          [max]="sliderConfig.max"
+          [min]="sliderConfig.min"
+          [step]="sliderConfig.step"
+          [discrete]="sliderConfig.discrete"
+          [showTickMarks]="sliderConfig.showTickMarks">
+          <input matSliderThumb formControlName="focus">
+        </mat-slider>
+        <div class="dailyCheckin__factor--value">{{ getOutcomeValue('focus') }}</div>
+      </div>
+
+      <div class="dailyCheckin__factor">
+        <mat-label>Emotional Stability</mat-label>
+        <mat-slider
+          class="dailyCheckin__factor--slider"
+          [disabled]="sliderConfig.disabled"
+          [max]="sliderConfig.max"
+          [min]="sliderConfig.min"
+          [step]="sliderConfig.step"
+          [discrete]="sliderConfig.discrete"
+          [showTickMarks]="sliderConfig.showTickMarks">
+          <input matSliderThumb formControlName="emotionalStability">
+        </mat-slider>
+        <div class="dailyCheckin__factor--value">{{ getOutcomeValue('emotionalStability') }}</div>
+      </div>
+
+      <div class="dailyCheckin__factor">
+        <mat-label>Productivity</mat-label>
+        <mat-slider
+          class="dailyCheckin__factor--slider"
+          [disabled]="sliderConfig.disabled"
+          [max]="sliderConfig.max"
+          [min]="sliderConfig.min"
+          [step]="sliderConfig.step"
+          [discrete]="sliderConfig.discrete"
+          [showTickMarks]="sliderConfig.showTickMarks">
+          <input matSliderThumb formControlName="productivity">
+        </mat-slider>
+        <div class="dailyCheckin__factor--value">{{ getOutcomeValue('productivity') }}</div>
+      </div>
+
+      <div class="dailyCheckin__factor">
+        <mat-label>Energy Level</mat-label>
+        <mat-slider
+          class="dailyCheckin__factor--slider"
+          [disabled]="sliderConfig.disabled"
+          [max]="sliderConfig.max"
+          [min]="sliderConfig.min"
+          [step]="sliderConfig.step"
+          [discrete]="sliderConfig.discrete"
+          [showTickMarks]="sliderConfig.showTickMarks">
+          <input matSliderThumb formControlName="energyLevel">
+        </mat-slider>
+        <div class="dailyCheckin__factor--value">{{ getOutcomeValue('energyLevel') }}</div>
+      </div>
+
+      <div class="dailyCheckin__factor">
+        <mat-label>Anxiety</mat-label>
+        <mat-slider
+          class="dailyCheckin__factor--slider"
+          [disabled]="sliderConfig.disabled"
+          [max]="sliderConfig.max"
+          [min]="sliderConfig.min"
+          [step]="sliderConfig.step"
+          [discrete]="sliderConfig.discrete"
+          [showTickMarks]="sliderConfig.showTickMarks">
+          <input matSliderThumb formControlName="anxiety">
+        </mat-slider>
+        <div class="dailyCheckin__factor--value">{{ getOutcomeValue('anxiety') }}</div>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+
+</form>

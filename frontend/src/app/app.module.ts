@@ -19,6 +19,17 @@ import {DailyCheckinComponent} from "./daily-checkin/daily-checkin.component";
 import {MatSlider, MatSliderThumb} from "@angular/material/slider";
 import {MatStep, MatStepLabel, MatStepper, MatStepperNext, MatStepperPrevious} from "@angular/material/stepper";
 import {MatButtonModule} from '@angular/material/button';
+import {DailyFactorsComponent} from "./daily-checkin/daily-factors/daily-factors.component";
+import {DailyOutcomesComponent} from "./daily-checkin/daily-outcomes/daily-outcomes.component";
+import {DailyOverviewComponent} from "./daily-checkin/daily-overview/daily-overview.component";
+import {
+  MatCell, MatCellDef, MatColumnDef,
+  MatHeaderCell,
+  MatHeaderCellDef,
+  MatHeaderRow,
+  MatHeaderRowDef, MatRow, MatRowDef,
+  MatTable
+} from "@angular/material/table";
 
 
 const appRoutes: Routes = [
@@ -35,7 +46,10 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    DailyCheckinComponent
+    DailyCheckinComponent,
+    DailyFactorsComponent,
+    DailyOutcomesComponent,
+    DailyOverviewComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +70,17 @@ const appRoutes: Routes = [
     MatStepLabel,
     MatStepperNext,
     MatButtonModule,
-    MatStepperPrevious
+    MatStepperPrevious,
+    MatTable,
+    MatHeaderCell,
+    MatCell,
+    MatHeaderRow,
+    MatHeaderCellDef,
+    MatHeaderRowDef,
+    MatRowDef,
+    MatRow,
+    MatColumnDef,
+    MatCellDef
   ],
   providers: [
     AdapterService,

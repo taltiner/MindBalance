@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {AdapterService} from "../adapter/adapter.service";
+import {Component, ViewChild} from '@angular/core';
+import { FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import {SliderConfig} from "../models/slider-config.interface";
+import {MatStepper} from "@angular/material/stepper";
 
 @Component({
   selector: 'app-daily-checkin',
@@ -9,15 +10,20 @@ import {Router} from "@angular/router";
   styleUrl: './daily-checkin.component.scss'
 })
 export class DailyCheckinComponent {
+  @ViewChild('stepper') stepper!: MatStepper;
 
   constructor(private router: Router) {}
 
-  min: number = 0;
-  max: number = 10;
-  step: number = 1;
-  discrete: boolean = false;
-  showTickMarks: boolean = true;
-  disabled: boolean = false;
+  sliderConfig: SliderConfig = {
+    min: 0,
+    max: 10,
+    step: 1,
+    discrete: false,
+    showTickMarks: true,
+    disabled: false,
+    isLinear: false
+  };
+
   isLinear: boolean = false;
 
   dailyCheckinForm: FormGroup = new FormGroup({
@@ -40,17 +46,14 @@ export class DailyCheckinComponent {
     'anxiety': new FormControl('0', Validators.required),
   })
 
-  getFactorValue(factor: string) {
-    return this.dailyCheckinForm.get(factor)?.value;
+  onSubmit() {
+
   }
 
-  getOutcomeValue(factor: string) {
-    return this.wellbeingMetricsForm.get(factor)?.value;
-  }
-
-
-  onSave() {
-    console.log('form', this.dailyCheckinForm);
+  onResetAll() {
+    this.dailyCheckinForm.reset();
+    this.wellbeingMetricsForm.reset();
+    this.stepper.reset();
   }
 
   onReturn() {
