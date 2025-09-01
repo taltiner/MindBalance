@@ -37,6 +37,11 @@ export class RegisterComponent {
     this.adapterService.register(payload);
   }
 
+  onClick() {
+    this._router.navigate(['/login']);
+  }
+
+
   private focusInvalidField(){
     const controls = this.registerForm.controls;
     const invalidControlKey = Object.keys(controls).find(key => controls[key].invalid);
