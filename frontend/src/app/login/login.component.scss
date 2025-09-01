@@ -1,3 +1,11 @@
+:host {
+    --green-to-blue-horizontal-gradient: linear-gradient(
+      90deg,
+      oklch(91.338% 0.14453 155.681) 0%,
+      oklch(69.069% 0.16172 267.272) 100%
+    );
+};
+
 .login {
   display: flex;
   flex-direction: column;
@@ -17,7 +25,7 @@
   }
 
   &__button {
-    background-color: #cca8e9;
+    background: var(--green-to-blue-horizontal-gradient);
     width: 150px;
   }
 }
