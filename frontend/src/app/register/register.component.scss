@@ -1,3 +1,11 @@
+:host {
+    --green-to-blue-horizontal-gradient: linear-gradient(
+      90deg,
+      oklch(91.338% 0.14453 155.681) 0%,
+      oklch(69.069% 0.16172 267.272) 100%
+    );
+};
+
 .register {
   display: flex;
   flex-direction: column;
@@ -17,8 +25,13 @@
   }
 
   &__button {
-    background-color: #cca8e9;
+    background: var(--green-to-blue-horizontal-gradient);
     width: 150px;
+    transition: transform 0.2s;
+  }
+
+  &__button:hover {
+    transform: scale(1.03);
   }
 }
 
@@ -32,4 +45,17 @@ mat-form-field {
 
 h1 {
   color: #5e63b6;
+}
+
+.login {
+  color: #5e63b6;
+  text-decoration: none;
+  font-size: 15px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.login:hover {
+  font-size: 16px;
+  color: rgb(253, 82, 182);
 }
