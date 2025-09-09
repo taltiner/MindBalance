@@ -10,10 +10,10 @@ import {SliderConfig} from "../../models/slider-config.interface";
 })
 export class DailyFactorsComponent {
   @Input() sliderConfig!: SliderConfig;
-  @Input() dailyCheckinForm: FormGroup = new FormGroup({});
+  @Input() dailyFactorsForm: FormGroup = new FormGroup({});
 
   getFactorValue(factor: string) {
-    return this.dailyCheckinForm.get(factor)?.value;
+    return this.dailyFactorsForm.get(factor)?.value;
   }
 
 }
