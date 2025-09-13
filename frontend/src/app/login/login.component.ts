@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AdapterService} from "../adapter/adapter.service";
 import {Login} from "../models/login.model";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import {Login} from "../models/login.model";
 })
 export class LoginComponent {
 
-  constructor(private adapterService: AdapterService) {}
+  constructor(private adapterService: AdapterService, private router: Router) {}
 
   loginForm: FormGroup = new FormGroup ({
     'email': new FormControl('', [Validators.required, Validators.email]),
@@ -24,6 +25,10 @@ export class LoginComponent {
       return;
     }
     this.adapterService.login(this.createLoginPayload());
+  }
+
+  onClick() {
+    this.router.navigate(['/register']);
   }
 
   private createLoginPayload(): Login {
