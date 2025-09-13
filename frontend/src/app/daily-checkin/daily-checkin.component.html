@@ -1,13 +1,13 @@
 <mat-stepper [linear]="isLinear" #stepper>
 
-  <mat-step [stepControl]="dailyCheckinForm">
+  <mat-step [stepControl]="dailyFactorsForm">
     <ng-template matStepLabel>Fill in your Influencing Factors</ng-template>
 
     <div class="dailyCheckin">
       <span>Please rate your day based on the following...</span>
       <app-daily-factors
         [sliderConfig]="sliderConfig"
-        [dailyCheckinForm]="dailyCheckinForm">
+        [dailyFactorsForm]="dailyFactorsForm">
       </app-daily-factors>
     </div>
 
@@ -37,7 +37,7 @@
     <ng-template matStepLabel>Review & Submit</ng-template>
     <p>You have completed all steps. Please review your inputs and submit.</p>
     <app-daily-overview
-      [dailyCheckinForm]="dailyCheckinForm"
+      [dailyCheckinForm]="dailyFactorsForm"
       [wellbeingMetricsForm]="wellbeingMetricsForm">
     </app-daily-overview>
 

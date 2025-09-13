@@ -4,7 +4,6 @@ import com.tolgay.mindbalance.dto.AuthenticationDTO;
 import com.tolgay.mindbalance.dto.AuthenticationResponseDTO;
 import com.tolgay.mindbalance.dto.UserDTO;
 import com.tolgay.mindbalance.service.AuthenticationService;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
